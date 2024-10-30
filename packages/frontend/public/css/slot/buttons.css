@@ -1,0 +1,73 @@
+.slots-button {
+  --spacing: calc(0.15 * var(--slot-container-width));
+  --translate: translate(0, -50%);
+  width: var(--slots-button-width);
+  position: absolute;
+  opacity: 0;
+  transform: var(--translate);
+  visibility: hidden;
+  transition: all 0s;
+  cursor: pointer;
+  filter: brightness(75%);
+  transition: all 0.2s ease;
+}
+
+.slots-button:hover {
+  filter: brightness(100%);
+  transform: var(--translate) scale(1.15);
+}
+
+.slot-outer-container:hover .slots-button,
+.slot-outer-container.active .slots-button {
+  visibility: visible;
+  cursor: pointer;
+  opacity: 1;
+}
+
+
+.slot-outer-container:hover .slots-button.del {
+  /* --translate: translate(-120%, -50%); */
+  --translate: translate(0, -50%);
+  top: 50%;
+  left: var(--spacing);
+}
+
+.slot-outer-container:hover .slots-button.copy {
+  /* --translate: translate(120%, -50%); */
+  --translate: translate(0, -50%);
+  top: 50%;
+  right: var(--spacing);
+}
+
+.slot-outer-container.active:hover .slots-button.del,
+.slot-outer-container.active:hover .slots-button.copy {
+  --spacing: 0;
+}
+
+.slots-button.reset,
+.slots-button.add {
+  opacity: 1;
+  visibility: visible;
+  left: 50%;
+}
+
+.slots-button.reset {
+  --translate: translate(-50%, -100%);
+  top: 0;
+}
+
+.slots-button.add {
+  --translate: translate(-50%, 100%);
+  bottom: 0;
+}
+
+.slots-button.simple {
+  --translate: translate(-250%, -50%);
+  transform: var(--translate) scale(2);
+  top: 50%;
+  left: 0;
+}
+
+.slots-button.simple:hover {
+  transform: var(--translate) scale(2.5);
+}

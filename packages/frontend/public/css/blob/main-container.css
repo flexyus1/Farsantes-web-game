@@ -1,0 +1,68 @@
+.blob-main-container {
+  display: flex;
+  position: relative;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 2rem;
+  cursor: pointer;
+  transition: var(--chat-transition);
+  transition-delay: var(--chat-transition-delay);
+}
+
+.blob-main-container.right {
+  flex-direction: row-reverse;
+}
+
+.blob-main-container.left {
+  flex-direction: row;
+}
+
+.blob-main-container.bottom {
+  flex-grow: 1;
+  max-width: 32%;
+  flex-direction: column-reverse;
+}
+
+.blob-main-container.top {
+  flex-direction: column;
+}
+
+/* Blob Type Chat Styles */
+.blob-main-container.hovered {
+  --chat-fill-color: var(--white);
+  --chat-stroke-color: var(--black);
+  --blob-head-color: var(--white);
+}
+
+.blob-main-container {
+  --chat-fill-color: var(--light-gray);
+  --chat-stroke-color: var(--black);
+  --blob-head-color: var(--white);
+  --blob-eye-color: var(--white);
+  --transition-duration: 1s;
+}
+
+
+.blob-main-container.true,
+.blob-main-container.false,
+.blob-main-container.green,
+.blob-main-container.red {
+  --transition-duration: 0.35s;
+}
+
+.blob-main-container.hovered {
+  --transition-duration: 0s;
+}
+
+
+.blob-main-container.true,
+.blob-main-container.green {
+  --chat-fill-color: var(--light-green);
+  --chat-stroke-color: var(--medium-green);
+}
+
+.blob-main-container.false,
+.blob-main-container.red {
+  --chat-fill-color: var(--light-red);
+  --chat-stroke-color: var(--dark-red);
+}

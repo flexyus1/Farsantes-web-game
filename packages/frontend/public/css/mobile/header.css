@@ -1,0 +1,37 @@
+@media (max-width: 768px) {
+  .header-section.left {
+    margin-left: 10%;
+    position: static;
+    justify-self: flex-start;
+    /* remove widht defintiion */
+    width: auto;
+  }
+
+  .header-section.right {
+    margin-right: 10%;
+    position: static;
+    justify-self: flex-end;
+    /* width: 50%; */
+    width: auto;
+  }
+
+  .header-section.center {
+    flex-grow: 1;
+  }
+
+  .nav-link {
+    display: none;
+  }
+
+  .mode-toggle.center {
+    display: block;
+  }
+
+  .mode-toggle.right {
+    display: none;
+  }
+
+  .icon-wrapper {
+    display: none;
+  }
+}

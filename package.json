@@ -1,0 +1,12 @@
+{
+  "name": "farsantes",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm run build --prefix packages/common && npm run build --prefix packages/backend && npm run build --prefix packages/frontend",
+    "start": "npm start --prefix packages/backend"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
+}

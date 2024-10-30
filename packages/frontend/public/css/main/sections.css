@@ -1,0 +1,17 @@
+.main-section {
+  height: 100%;
+  min-width: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  align-self: center;
+}
+
+.main-section.left {
+  align-items: flex-start;
+}
+
+.main-section.right {
+  align-items: flex-end;
+}

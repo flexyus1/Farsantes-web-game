@@ -1,0 +1,6 @@
+@media (max-width: 768px) {
+  .blob-main-container.bottom .chat-container {
+    height: 7rem;
+    padding-bottom: calc(var(--char-and-name-container-size) + 1rem);
+  }
+}

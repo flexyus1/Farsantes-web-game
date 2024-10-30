@@ -1,0 +1,27 @@
+header a {
+  font-family: var(--main-font);
+  font-weight: var(--main-font-weight);
+  font-size: 1.6rem;
+  width: 20%;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  line-height: calc(var(--header-height) - 10px);
+  height: calc(var(--header-height) - 10px);
+  color: #FAFAFF;
+  padding: 0 10px;
+  margin: 0;
+  filter: brightness(80%);
+}
+
+a:hover {
+  filter: brightness(100%);
+  transition: filter 0.3s ease;
+}
+
+a:hover {
+  font-size: 1.8rem;
+}

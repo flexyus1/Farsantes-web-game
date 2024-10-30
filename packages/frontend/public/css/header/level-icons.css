@@ -1,0 +1,99 @@
+:root {
+  --container-gap: 0.5rem;
+}
+
+.icon-wrapper {
+  --total-icons: 0;
+  width: var(--header-height);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.icon-wrapper:hover {
+  width: calc(var(--total-icons) * var(--header-height) + (var(--container-gap) * (var(--total-icons) - 1)));
+}
+
+.level-icon {
+  --transform-x: translateX(calc(var(--offset) * (var(--container-gap) + var(--header-height)) - 50%));
+  --border-size: calc(var(--header-height) / 35);
+  --border-radius: calc(var(--header-height) / 10);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: 1fr;
+  width: var(--header-height);
+  height: var(--header-height);
+  background-color: #d3d3d3;
+  border-radius: var(--border-radius);
+  border: var(--border-size) solid #000;
+  box-sizing: border-box;
+  position: absolute;
+  transition: all 0.3s ease;
+  opacity: 0;
+  cursor: pointer;
+  left: 50%;
+  transform: translateX(-50%) scale(0.8);
+}
+
+.level-icon.active {
+  opacity: 1;
+  z-index: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+.icon-wrapper:hover .level-icon {
+  opacity: 1;
+}
+
+.icon-wrapper:hover .level-icon {
+  transform: var(--transform-x) scale(1);
+}
+
+.icon-wrapper.hide-inactive .level-icon:not(.active) {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+
+
+
+/* Rest of your CSS for .item and container colors remains the same */
+
+.item {
+  border-radius: calc(var(--border-radius) / 2);
+  box-sizing: border-box;
+}
+
+.level-icon:hover {
+  transform: var(--transform-x) scale(1.15) !important;
+}
+
+.level-icon.easy {
+  --gap-size: calc(var(--header-height) / 12);
+  padding: var(--gap-size);
+  gap: var(--gap-size);
+}
+
+.level-icon.medium {
+  --gap-size: calc(var(--header-height) / 14);
+  padding: var(--gap-size);
+  gap: var(--gap-size);
+}
+
+.level-icon.hard {
+  --gap-size: calc(var(--header-height) / 16);
+  padding: var(--gap-size);
+  gap: var(--gap-size);
+}
+
+.level-icon.easy .item {
+  background-color: #5ca25c;
+}
+
+.level-icon.medium .item {
+  background-color: #6c94ba;
+}
+
+.level-icon.hard .item {
+  background-color: #c45454;
+}

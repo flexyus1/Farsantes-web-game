@@ -1,0 +1,40 @@
+.group {
+  display: flex;
+  justify-content: center;
+  gap: var(--side-group-gap);
+}
+
+.group.top,
+.group.bottom {
+  flex-direction: row;
+  /* padding: var(--side-group-padding) 0; */
+}
+
+.group.bottom {
+  margin-top: var(--side-group-gap);
+  justify-content: center;
+  width: 100%;
+}
+
+.group.left,
+.group.right {
+  flex-direction: column;
+  padding: 0 var(--side-group-padding);
+}
+
+.group.left {
+  align-items: flex-end;
+}
+
+.group.right {
+  align-items: flex-start;
+}
+
+.middle-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  margin-top: var(--side-group-gap);
+}

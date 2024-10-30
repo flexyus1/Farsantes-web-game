@@ -1,0 +1,27 @@
+:root {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 320px) {
+  :root {
+    font-size: 8px;
+  }
+}

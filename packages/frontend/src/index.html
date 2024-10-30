@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- <html class="light-mode" lang="en"> -->
+<html class="dark-mode" lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap">
+  <!-- <link rel="stylesheet" href="styles.css"> -->
+  <title>TypeScript Project</title>
+</head>
+
+<body>
+  <header>
+    <div class="header-section left">
+      <img src="public/img/button/hamburger-icon.svg" class="hamburger-icon" id="hamburger-icon">
+      <div class="icon-wrapper" id="level-icon-wrapper">
+
+      </div>
+    </div>
+    <div class="header-section center">
+      <img src="public/img/title/title-white-centralized.png" class="logo">
+    </div>
+    <div class="header-section right">
+      <div class="liar-count" id="liar-count">
+      </div>
+    </div>
+  </header>
+  <ul class="hamburger-items">
+    <li><a class="hamburger-section tutorial">Tutorial</a></li>
+    <li><a class="hamburger-section easy">Easy</a></li>
+    <li><a class="hamburger-section medium">Medium</a></li>
+    <li><a class="hamburger-section hard">Hard</a></li>
+    <li><a class="hamburger-section random">Random</a></li>
+  </ul>
+
+  <main id="main">
+    <div class="main-section left">
+      <div class="slots-container" id="slots-and-buttons-container">
+        <img src="public/img/button/reset-button.svg" class="slots-button reset" id="slots-button-reset">
+        <div class="slots-container inner" id="slots-container"></div>
+        <img src="public/img/button/add-button.svg" class="slots-button add" id="slots-button-add">
+      </div>
+    </div>
+    <div class="game-container" id="game-container">
+      <div class="middle-row">
+        <div class="group left"></div>
+        <div class="group right"></div>
+      </div>
+      <div class="group bottom"></div>
+      <img src="public/img/button/reset-button.svg" class="slots-button simple reset hidden" id="slots-button-simple">
+    </div>
+    <div class="main-section right">
+    </div>
+  </main>
+  <script type="module" src="public/dist/main.js"></script>
+</body>
+
+</html>

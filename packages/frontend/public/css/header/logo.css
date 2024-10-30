@@ -1,0 +1,26 @@
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 80%;
+  padding: 8px 0;
+  filter: brightness(75%);
+}
+
+.logo:hover,
+a:hover {
+  filter: brightness(100%);
+  transition: filter 0.3s ease;
+}
+
+.logo:hover {
+  height: 85%;
+}
+
+.logo.white-version {
+  display: var(--dark-theme-elements-display)
+}
+
+.logo.black-version {
+  display: var(--white-theme-elements-display)
+}

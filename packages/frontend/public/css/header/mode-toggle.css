@@ -1,0 +1,54 @@
+/* Dark/Light mode toggle button */
+.mode-toggle {
+  position: relative;
+  z-index: 1001;
+  width: 60px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.mode-toggle.center {
+  display: none;
+}
+
+.mode-toggle.right {
+  display: block;
+}
+
+.mode-toggle::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: rgb(208, 208, 208);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.mode-toggle.dark-mode {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.mode-toggle.dark-mode::after {
+  transform: translateX(-30px);
+}
+
+.mode-toggle::before {
+  opacity: 0.3;
+  content: '🌙';
+  position: absolute;
+  left: 8px;
+  top: 5px;
+  font-size: 16px;
+}
+
+.mode-toggle.dark-mode::before {
+  content: '☀️';
+  left: auto;
+  right: 8px;
+}

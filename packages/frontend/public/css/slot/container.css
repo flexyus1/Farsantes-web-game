@@ -1,0 +1,112 @@
+:root {
+  --slots-gap: 0.35rem;
+  --slots-button-width: 2rem;
+  --slot-container-width: 5rem;
+}
+
+.slots-container {
+  position: relative;
+  display: flex;
+  min-width: var(--slot-container-width);
+  padding: 0.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.slots-container.hidden {
+  display: none;
+}
+
+.slot-outer-container {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  opacity: 1;
+  transition:
+    transform 0.3s ease-in-out,
+    opacity 0.3s ease-in-out;
+  transform: unset;
+}
+
+.slot-outer-container.to-delete {
+  opacity: 0;
+}
+
+.slot-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  height: var(--slot-container-width);
+  width: var(--slot-container-width);
+  background-color: var(--light-gray);
+  border-radius: 5px;
+  z-index: 25;
+  margin-left: 4rem;
+  margin-right: 4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box;
+  transition: all 0.1s ease-in-out;
+}
+
+.slot-outer-container.active .slot-main-container {
+  transform: scale(1.3);
+  border: rgb(100 155 200) solid 0.3rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.slot-outer-container.recently-created {
+  transform: translate(0, -100%);
+  opacity: 0;
+}
+
+.slot-middle-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--slots-gap);
+}
+
+.slot-container.side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  gap: var(--slots-gap);
+}
+
+.slot-container.bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* height: 40%; */
+  margin-top: 4px;
+  gap: 4px;
+}
+
+.slot-blob {
+  border-radius: 5px;
+}
+
+.slot-blob.red {
+  background-color: #DC7575;
+}
+
+.slot-blob.green {
+  background-color: #63C36D;
+}
+
+.slot-blob.none {
+  background-color: #ACA7A9;
+}

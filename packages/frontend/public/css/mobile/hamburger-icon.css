@@ -1,0 +1,121 @@
+.hamburger-icon {
+  display: none;
+}
+
+.hamburger-items {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+
+  .hamburger-icon {
+    position: fixed;
+    right: 5%;
+    display: flex;
+    height: var(--header-height);
+    opacity: 0.5;
+  }
+
+  .hamburger-items {
+    position: fixed;
+    top: calc(var(--header-height) + var(--header-vertical-padding) * 2);
+    left: 0;
+    right: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    z-index: 1200;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: var(--background-color);
+    transition:
+      max-height 0.3s ease-out,
+      opacity 0.3s ease-in,
+      border 0.3s ease-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    border: 0 solid var(--header-border-color);
+  }
+
+  .hamburger-items.active,
+  .hamburger-items.hover {
+    transition:
+      max-height 0.5s ease-out,
+      opacity 0.3s ease-out,
+      border 0.3s ease-out;
+  }
+
+  .hamburger-items.show {
+    max-height: 1000px;
+    /* Adjust this value based on your needs */
+    opacity: 1;
+    border-width: 1px;
+    /* border-top: none; */
+  }
+
+  .hamburger-items li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 0;
+    opacity: 0;
+    transform: translateY(-80px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  .hamburger-items.show li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .hamburger-items li a {
+    font-family: var(--main-font);
+    font-weight: var(--main-font-weight);
+    font-size: 32px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    line-height: calc(var(--header-height) - 10px);
+    height: calc(var(--header-height) - 10px);
+    color: #FAFAFF;
+    padding: 0 10px;
+    margin: 0;
+    filter: brightness(80%);
+  }
+
+  .hamburger-items li a:hover {
+    filter: brightness(100%);
+  }
+
+  .hamburger-items.show li:nth-child(1) {
+    transition-delay: calc(0.1s);
+  }
+
+  .hamburger-items.show li:nth-child(2) {
+    transition-delay: calc(0.2s);
+  }
+
+  .hamburger-items.show li:nth-child(3) {
+    transition-delay: calc(0.3s);
+  }
+
+  .hamburger-items.show li:nth-child(4) {
+    transition-delay: calc(0.4s);
+  }
+
+  .hamburger-items.show li:nth-child(5) {
+    transition-delay: calc(0.5s);
+  }
+}

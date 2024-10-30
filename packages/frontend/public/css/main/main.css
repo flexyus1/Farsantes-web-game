@@ -1,0 +1,8 @@
+main {
+  display: flex;
+  height: 100vh;
+  width: min(100vw, calc(var(--main-container-width) + 15rem));
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+}

@@ -1,0 +1,27 @@
+.char-and-name-container {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+  width: var(--char-and-name-container-size);
+  height: var(--char-and-name-container-size);
+  z-index: 20;
+}
+
+.blob-main-container.right .char-and-name-container {
+  top: 50%;
+  right: 0;
+  transform: translate(-1rem, -50%);
+}
+
+.blob-main-container.left .char-and-name-container {
+  top: 50%;
+  left: 0;
+  transform: translate(1rem, -50%);
+}
+
+.blob-main-container.bottom .char-and-name-container {
+  bottom: 0.25rem;
+  flex-grow: 1;
+  /* transform: translate(-50%, 1em); */
+}
