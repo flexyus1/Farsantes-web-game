@@ -4,6 +4,8 @@ A logic puzzle game where players must identify liars among a group of colorful 
 
 🚧 **This project is still a work in progress** 🚧
 
+![hippo](https://s1.gifyu.com/images/SOOEU.gif)
+
 A preview version is available at [farsant.es](https://farsant.es)  
 *Psst... you can see the answer for the daily game in the browser console* 😉
 
