@@ -1,0 +1,134 @@
+// ##############################################
+// ################# Container ##################
+// ##############################################
+
+.blobContainer {
+  width: 140px;
+  height: 100px;
+
+  --eye_color: rgb(255, 255, 255);
+  --head_color: rgb(255, 255, 255);
+  --hat_color: pink;
+  --feather_color: pink;
+
+  .eye_fill {
+    fill: var(--eye_color);
+  }
+
+  .head_fill {
+    fill: var(--head_color);
+  }
+
+  .hat_fill {
+    fill: var(--hat_color);
+  }
+
+  .feather_fill {
+    fill: var(--feather_color);
+  }
+
+}
+
+.blobContainer.green {
+  --hat_color: rgb(0, 255, 42);
+  --feather_color: red;
+
+}
+
+.blobContainer.blue {
+  --hat_color: rgb(0, 108, 250);
+  --feather_color: rgb(40, 195, 216);
+
+}
+
+.blobContainer.orange {
+  --hat_color: rgb(255, 166, 0);
+  --feather_color: rgb(177, 252, 38);
+}
+
+.blobContainer.red {
+  --hat_color: rgb(255, 5, 5);
+  --feather_color: rgb(54, 250, 36);
+
+
+}
+
+.blobContainer {
+  position: relative;
+}
+
+// ##############################################
+// ################# Body & Hat #################
+// ##############################################
+
+.body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-name: bounce-body-short;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  z-index: 1;
+}
+
+.hat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation-name: bounce-hat-short;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  z-index: 2;
+}
+
+// ##############################################
+// ################# Animations #################
+// ##############################################
+
+@keyframes bounce-hat-short {
+
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.01, 1) rotate(3deg) translate(1.5%, 6%)
+  }
+}
+
+@keyframes bounce-hat-long {
+
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.02, 1) rotate(6deg) translate(3.3%, 13%)
+  }
+}
+
+@keyframes bounce-body-long {
+
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.05, 0.75) translate(0, 18%);
+  }
+}
+
+@keyframes bounce-body-short {
+
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+
+  50% {
+    transform: scale(1.03, 0.90) translate(0, 6.5%);
+  }
+}

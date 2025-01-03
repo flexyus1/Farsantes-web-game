@@ -1,0 +1,24 @@
+.nameLabel {
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  font-weight: bold;
+  font-family: $mainFont;
+  color: white;
+  text-shadow: 0.000em 0.075em black,
+    0.029em 0.069em black,
+    0.053em 0.053em black,
+    0.069em 0.029em black,
+    0.075em 0.000em black,
+    0.069em -0.029em black,
+    0.053em -0.053em black,
+    0.029em -0.069em black,
+    0.000em -0.075em black,
+    -0.029em -0.069em black,
+    -0.053em -0.053em black,
+    -0.069em -0.029em black,
+    -0.075em -0.000em black,
+    -0.069em 0.029em black,
+    -0.053em 0.053em black,
+    -0.029em 0.069em black;
+  ;
+}

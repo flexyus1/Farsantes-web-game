@@ -1,0 +1,18 @@
+.textContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  margin: auto;
+
+  line {
+    z-index: 25;
+    font-family: $mainFont;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+    text-align: center;
+    color: black;
+  }
+
+}

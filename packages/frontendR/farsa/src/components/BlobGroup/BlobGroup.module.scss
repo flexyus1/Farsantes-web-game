@@ -1,0 +1,19 @@
+.blobGroup {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 8px;
+
+  &.left {
+    flex-direction: column;
+  }
+
+  &.right {
+    flex-direction: column;
+
+  }
+
+  &.bottom {
+    flex-direction: row;
+  }
+}
