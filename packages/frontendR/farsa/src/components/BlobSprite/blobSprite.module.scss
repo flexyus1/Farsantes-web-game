@@ -2,9 +2,20 @@
 // ################# Container ##################
 // ##############################################
 
-.blobContainer {
+// Variáveis de cor
+$eye-color: rgb(255, 255, 255);
+$head-color: rgb(255, 255, 255);
+
+// Função para gerar a paleta de cores para cada tema
+@mixin blob-theme($hat-color, $feather-color) {
+  --hat_color: #{$hat-color};
+  --feather_color: #{$feather-color};
+}
+
+.blobSprite {
   width: 140px;
   height: 100px;
+  position: relative;
 
   --eye_color: rgb(255, 255, 255);
   --head_color: rgb(255, 255, 255);
@@ -27,34 +38,26 @@
     fill: var(--feather_color);
   }
 
-}
+  &.green {
+    @include blob-theme(rgb(0, 255, 42), rgb(255, 0, 0));
+  }
 
-.blobContainer.green {
-  --hat_color: rgb(0, 255, 42);
-  --feather_color: red;
+  &.blue {
+    @include blob-theme(rgb(0, 108, 250), rgb(40, 195, 216));
+  }
 
-}
+  &.orange {
+    @include blob-theme(rgb(255, 166, 0), rgb(177, 252, 38));
+  }
 
-.blobContainer.blue {
-  --hat_color: rgb(0, 108, 250);
-  --feather_color: rgb(40, 195, 216);
-
-}
-
-.blobContainer.orange {
-  --hat_color: rgb(255, 166, 0);
-  --feather_color: rgb(177, 252, 38);
-}
-
-.blobContainer.red {
-  --hat_color: rgb(255, 5, 5);
-  --feather_color: rgb(54, 250, 36);
-
+  &.red {
+    @include blob-theme(rgb(255, 5, 5), rgb(54, 250, 36));
+  }
 
 }
 
-.blobContainer {
-  position: relative;
+.flipped {
+  transform: scaleX(-1);
 }
 
 // ##############################################
@@ -69,6 +72,7 @@
   animation-duration: 1s;
   animation-iteration-count: infinite;
   z-index: 1;
+
 }
 
 .hat {

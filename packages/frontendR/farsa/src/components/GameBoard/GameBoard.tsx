@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import BlobGroup from "../BlobGroup/BlobGroup";
 import { groupSide } from "../../imports/imports";
 import styles from "./GameBoard.module.scss";
@@ -6,7 +7,19 @@ import Blob from "../../model/Blob";
 import { BlobData } from "../../imports/imports";
 
 export default function GameBoard(): JSX.Element {
-  const blobs = levelData.level.blobs;
+  const [blobs, setBlobs] = useState<Blob[]>([]);
+
+  useEffect(() => {
+    const mutateAll = (callback: (blob: Blob) => Blob) => {
+      setBlobs((prevBlobs) => prevBlobs.map((blob) => callback(blob)));
+    };
+
+    const initialBlobs = levelData.level.blobs.map(
+      (blobData: BlobData) => new Blob(blobData, mutateAll)
+    );
+    setBlobs(initialBlobs);
+  }, []); // Empty dependency array ensures this runs only once
+
   const { left: leftSide, right: rightSide, bottom: bottomSide } = organizeSides(blobs);
 
   return (
@@ -17,23 +30,21 @@ export default function GameBoard(): JSX.Element {
       </div>
       <BlobGroup blobs={bottomSide} side={groupSide.BOTTOM} />
     </div>
-  )
+  );
 }
 
-function organizeSides(blobs: BlobData[]): { left: Blob[], right: Blob[], bottom: Blob[] } {
+function organizeSides(blobs: Blob[]): { left: Blob[]; right: Blob[]; bottom: Blob[] } {
   const left: Blob[] = [];
   const right: Blob[] = [];
   const bottom: Blob[] = [];
 
-  blobs.forEach((blob: BlobData) => {
+  blobs.forEach((blob: Blob) => {
     if (blob.side === groupSide.LEFT) {
-      left.push(new Blob(blob));
-    }
-    if (blob.side === groupSide.RIGHT) {
-      right.push(new Blob(blob));
-    }
-    if (blob.side === groupSide.BOTTOM) {
-      bottom.push(new Blob(blob));
+      left.push(blob);
+    } else if (blob.side === groupSide.RIGHT) {
+      right.push(blob);
+    } else if (blob.side === groupSide.BOTTOM) {
+      bottom.push(blob);
     }
   });
 

@@ -1,4 +1,4 @@
-import styles from "../BlobText/statementText.module.scss"
+import styles from "../BlobText/StatementText.module.scss"
 import { Blob, Clue, ClueTarget, BlobColor, BlobIntegrity, GroupSide } from "@farsantes/common";
 
 interface StatementTextProps {

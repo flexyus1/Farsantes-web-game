@@ -1,11 +1,11 @@
-import styles from "../BlobSprite/blobSprite.module.scss"
+import styles from "./BlobSprite.module.scss"
 export default function Body() {
   return (
 
     <svg className={`${styles.body}`} style={{ width: "100%", height: "100%;" }} viewBox="0 0 110 74" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clip-path="url(#clip0_23_463)">
         <path className={styles.head_fill} d="M54.2635 28.3277C40.3844 29.4879 21.1079 38.2858 22.5536 58.7822C23.6925 74.928 47.9665 73.4456 60.2393 73.091C73.6365 72.704 89.0577 73.091 89.0577 57.7187C89.0577 27.1674 62.9027 27.6056 54.2635 28.3277Z" />
-        <path d="M59.0883 61.8991C58.3238 64.1467 62.7096 66.5962 65.0034 63C66.915 65.2476 70.9397 64.1467 69.7928 61" stroke="black" stroke-opacity="0.95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M59.0883 61.8991C58.3238 64.1467 62.7096 66.5962 65.0034 63C66.915 65.2476 70.9397 64.1467 69.7928 61" stroke="black" stroke-opacity="0.95" stroke-width="2" strokeLinecap="round" strokeLinejoin="round" />
         <path d="M54.2634 56.4619C58.4079 52.8847 55.9983 44.0867 50.119 43.99C49.1552 43.99 44.7216 44.7634 44.0469 49.9842C43.1794 57.5254 50.119 60.0391 54.2634 56.4619Z" fill="black" />
         <path className={styles.eye_fill} d="M52.5285 48.6307C52.5285 46.6971 50.8578 46.2137 50.0225 46.2137C49.5727 46.2459 48.4804 46.407 47.9021 47.2771C47.2583 48.2458 47.613 50.142 49.2515 50.661C49.7334 50.8137 52.5285 51.0477 52.5285 48.6307Z" />
         <path d="M81.1003 56.2512C85.1156 52.7621 82.7811 44.1809 77.0851 44.0866C76.1513 44.0866 71.8559 44.841 71.2023 49.9332C70.3619 57.2885 77.0851 59.7403 81.1003 56.2512Z" fill="black" />
