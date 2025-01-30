@@ -2,7 +2,6 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   resolve: {
@@ -17,4 +16,16 @@ export default defineConfig({
       },
     },
   },
+  build: {
+    outDir: 'dist', // Output folder
+    assetsDir: 'assets', // Place assets in an assets folder
+    rollupOptions: {
+      input: 'index.html', // Entry point
+    },
+  },
+  server: {
+    host: true, // Allows external access if needed
+    port: 3000, // Change to your desired port
+  },
 });
+

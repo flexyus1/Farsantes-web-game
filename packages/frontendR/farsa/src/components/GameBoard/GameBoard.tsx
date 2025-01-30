@@ -2,11 +2,15 @@ import { useEffect, useState } from "react";
 import BlobGroup from "../BlobGroup/BlobGroup";
 import { groupSide } from "../../imports/imports";
 import styles from "./GameBoard.module.scss";
-import { levelData } from "../../data/blobs";
 import Blob from "../../model/Blob";
 import { BlobData } from "../../imports/imports";
+import { Level } from "@farsantes/common";
 
-export default function GameBoard(): JSX.Element {
+interface GameBoardProps {
+  level: Level
+}
+
+export default function GameBoard({ level }: GameBoardProps): JSX.Element {
   const [blobs, setBlobs] = useState<Blob[]>([]);
 
   useEffect(() => {
@@ -14,7 +18,7 @@ export default function GameBoard(): JSX.Element {
       setBlobs((prevBlobs) => prevBlobs.map((blob) => callback(blob)));
     };
 
-    const initialBlobs = levelData.level.blobs.map(
+    const initialBlobs = level.blobs.map(
       (blobData: BlobData) => new Blob(blobData, mutateAll)
     );
     setBlobs(initialBlobs);
