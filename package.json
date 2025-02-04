@@ -12,5 +12,8 @@
   ],
   "dependencies": {
     "vite": "^6.0.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
   }
 }
