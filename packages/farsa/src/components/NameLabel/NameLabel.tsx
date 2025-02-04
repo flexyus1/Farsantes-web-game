@@ -1,4 +1,4 @@
-import styles from "../NameLabel/nameLabel.module.scss"
+import styles from "../NameLabel/NameLabel.module.scss"
 
 export interface NameProps {
     name: string
