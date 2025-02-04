@@ -8,8 +8,8 @@ import SimpleRNG from '@farsantes/common/dist/LevelGenerator/SimpleRNG';
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, '../../frontend/dist')));
-app.use('/public', express.static(path.join(__dirname, '../../frontend/public')));
+app.use(express.static(path.join(__dirname, '../../frontendR/farsa/dist')));
+// app.use('/public', express.static(path.join(__dirname, '../../frontend/public')));
 
 
 app.listen(port, () => {

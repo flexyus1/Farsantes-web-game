@@ -27,7 +27,7 @@ export function getBlobText(blobSide: GroupSide | null, clue: Clue) {
     return (<>
       <line>{firstToUpper(amountText)}</line>
       <line>{colorText}</line>
-      <line>{verbText} <span className={booleanType ? "true" : "false"}>{booleanText}</span></line>
+      <line>{verbText} <span className={booleanType ? styles.true : styles.false}>{booleanText}</span></line>
     </>)
   }
 
@@ -41,7 +41,7 @@ export function getBlobText(blobSide: GroupSide | null, clue: Clue) {
     return (<>
       <line>{firstToUpper(prefix)} {sideText}</line>
       <line>{amountText}</line>
-      <line>{verbText} <span className={booleanType ? "true" : "false"}>{booleanText}</span></line>
+      <line>{verbText} <span className={booleanType ? styles.true : styles.false}>{booleanText}</span></line>
     </>)
   }
 
@@ -51,7 +51,7 @@ export function getBlobText(blobSide: GroupSide | null, clue: Clue) {
 
     return (<>
       <line>{clue.targetedName}</line>
-      <line>{verbText} <span className={booleanType ? "true" : "false"}>{booleanText}</span></line>
+      <line>{verbText} <span className={booleanType ? styles.true : styles.false}>{booleanText}</span></line>
     </>)
   }
 
@@ -62,7 +62,7 @@ export function getBlobText(blobSide: GroupSide | null, clue: Clue) {
     return (<>
       <line>{firstToUpper(prefix)}</line>
       <line>apenas</line>
-      <line>{clue.amount} <span className={booleanType ? "true" : "false"}>{booleanText}</span></line>
+      <line>{clue.amount} <span className={booleanType ? styles.true : styles.false}>{booleanText}</span></line>
     </>)
   }
 

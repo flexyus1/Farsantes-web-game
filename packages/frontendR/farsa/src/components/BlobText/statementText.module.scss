@@ -13,13 +13,15 @@
     line-height: 1.6rem;
     text-align: center;
     color: black;
+
+    .true {
+      color: green;
+    }
+
+    .false {
+      color: red;
+    }
   }
 
-  .true {
-    color: green;
-  }
 
-  .false {
-    color: red;
-  }
 }
