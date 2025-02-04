@@ -1,0 +1,3 @@
+[build]
+  command = "npm run build --prefix packages/common && npm run build --prefix packages/frontendR/farsa"
+  publish = "packages/frontendR/farsa/build"
