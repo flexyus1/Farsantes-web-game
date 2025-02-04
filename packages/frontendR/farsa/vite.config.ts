@@ -16,6 +16,7 @@ export default defineConfig({
       },
     },
   },
+  base: "/",
   build: {
     outDir: 'dist', // Output folder
     assetsDir: 'assets', // Place assets in an assets folder
