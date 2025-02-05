@@ -12,7 +12,7 @@ function App() {
   useEffect(() => {
     // Call fetchLevel (which returns a Promise) but without using 'await'
     //@ts-ignore
-    fetchLevel(difficultyLevel.EASY).then(({ level: levelData, liarCount }) => {
+    fetchLevel(difficultyLevel.MEDIUM).then(({ level: levelData, liarCount }) => {
       // Save the data to state when it's ready
       setLevel(levelData);
     });
