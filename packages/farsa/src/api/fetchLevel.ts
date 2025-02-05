@@ -2,7 +2,7 @@ import { Level } from "@farsantes/common";
 
 export async function fetchLevel(level: string): Promise<{ level: Level, liarCount: any }> {
   try {
-    const response = await fetch(`/level/${level}`);
+    const response = await fetch(`${level}`);
 
     if (!response.ok) {
       throw new Error(`Failed to fetch level data. Status: ${response.status}`);
