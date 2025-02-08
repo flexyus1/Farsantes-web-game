@@ -5,6 +5,7 @@ import { fetchLevel } from "./api/fetchLevel";
 import { Level } from "@farsantes/common";
 import { difficultyLevel } from "./imports/imports";
 import Header from "./components/Header/Header";
+import { levelData as mockLevel } from "./data/blobs";
 
 function App() {
   const [level, setLevel] = useState<Level | null>(null);
@@ -12,22 +13,22 @@ function App() {
   useEffect(() => {
     // Call fetchLevel (which returns a Promise) but without using 'await'
     //@ts-ignore
-    fetchLevel(difficultyLevel.MEDIUM).then(({ level: levelData, liarCount }) => {
+    fetchLevel(difficultyLevel).then(({ level: levelData, liarCount }) => {
       // Save the data to state when it's ready
       setLevel(levelData);
     });
   }, []);
 
-  // Optionally, render a “loading” view while 'level' is still null
-  if (level === null) {
-    return <div>Loading...</div>;
-  }
+  //  if (level === null) {
+  //   return <div>Loading...</div>;
+  // }
 
   // Once we have data, render the component
   return (
     <div className="appContainer">
       <Header />
-      <GameBoard level={level} />
+      {/*TODO remove mockLevel  */}
+      <GameBoard level={level || mockLevel.level} />
     </div>
   )
 }
