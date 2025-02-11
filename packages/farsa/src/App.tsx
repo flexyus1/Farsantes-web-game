@@ -5,7 +5,7 @@ import { fetchLevel } from "./api/fetchLevel";
 import { Level } from "@farsantes/common";
 import { difficultyLevel } from "./imports/imports";
 import Header from "./components/Header/Header";
-// import { levelData as mockLevel } from "./data/blobs";
+import { levelData as mockLevel } from "./data/blobs";
 
 function App() {
   const [level, setLevel] = useState<Level | null>(null);
@@ -19,16 +19,16 @@ function App() {
     });
   }, []);
 
-  if (level === null) {
-    return <div>Loading...</div>;
-  }
+  // if (level === null) {
+  //   return <div>Loading...</div>;
+  // }
 
   // Once we have data, render the component
   return (
     <div className="appContainer">
-      <Header level={level} />
+      <Header level={level || mockLevel.level} />
       {/*TODO remove mockLevel  */}
-      <GameBoard level={level} />
+      <GameBoard level={level || mockLevel.level} />
     </div>
   )
 }
