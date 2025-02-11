@@ -2,7 +2,8 @@
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
-  gap: 16px;
+  gap: $gap-between-cards;
+  width: calc(50% - ($gap-between-cards / 2));
 
   &.left {
     flex-direction: column;
@@ -15,5 +16,8 @@
 
   &.bottom {
     flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+
   }
 }

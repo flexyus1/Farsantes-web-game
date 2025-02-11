@@ -1,16 +1,17 @@
 .mainContainer {
   display: flex;
+  width: $main-container-width;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 18px;
+  gap: $gap-between-cards;
 }
 
 .middleRow {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 18px;
+  width: 100%;
 
 }

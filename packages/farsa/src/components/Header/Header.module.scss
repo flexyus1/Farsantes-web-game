@@ -1,16 +1,43 @@
 .header {
   display: flex;
+  width: $main-container-width;
   justify-content: space-between;
   margin-top: 2rem;
   margin-bottom: 2rem;
+
+  >div {
+    display: flex;
+    flex-basis: 0;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
 }
 
 .logo img {
   width: 250px;
-  height: 50px;
+  height: auto;
+  filter: brightness(80%);
+  transition: filter 0.5s ease, transform 0.5s ease;
+
+  &:hover {
+    filter: brightness(100%);
+    transform: scale(1.1);
+    transition: unset;
+  }
 }
 
 .item img {
   width: 40px;
   height: 40px;
+}
+
+.quantity {
+  color: orangered;
+  font-family: $mainFont;
+  font-size: 2rem;
+  line-height: 2rem;
+  font-weight: bold;
+  text-shadow: 0.000em 0.075em black, 0.029em 0.069em black, 0.053em 0.053em black, 0.069em 0.029em black, 0.075em 0.000em black, 0.069em -0.029em black, 0.053em -0.053em black, 0.029em -0.069em black, 0.000em -0.075em black, -0.029em -0.069em black, -0.053em -0.053em black, -0.069em -0.029em black, -0.075em -0.000em black, -0.069em 0.029em black, -0.053em 0.053em black, -0.029em 0.069em black;
 }
