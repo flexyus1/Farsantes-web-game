@@ -1,5 +1,5 @@
 import logo from "../../../public/img/title/title-white.png"
-import genericMenu from "../../../public/img/menu/OIP.jpeg"
+// import genericMenu from "../../../public/img/menu/OIP.jpeg"
 import styles from "./Header.module.scss"
 import { Level } from "@farsantes/common"
 
@@ -22,7 +22,7 @@ export default function Header({ level }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.item}>
-        <img src={genericMenu} alt="" />
+        {/* <img src={genericMenu} alt="" /> */}
       </div>
       <div className={styles.logo}>
         <img src={logo} alt="" />
