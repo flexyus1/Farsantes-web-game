@@ -1,6 +1,6 @@
 import { Blob, BlobIntegrity, GroupSide, Level, blobIntegrity, convertBlobListToMap, groupSides, isDebugEnabled, tutorial1 } from "@farsantes/common";
 import { createCharAndChatContainer, initializeLevelIcons, setupMessageHighlighting } from "../dom";
-import LevelManager from "../../../common/dist/LevelManager/LevelManager";
+import LevelManager from "@farsantes/common/dist/LevelManager/LevelManager";
 import { fetchLevel } from "../api/fetchLevel";
 import { StateManager } from "./StateManager";
 

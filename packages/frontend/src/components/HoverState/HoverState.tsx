@@ -14,7 +14,6 @@ interface HoverStateProps {
 export default function HoverState({ blobs, side }: HoverStateProps): React.ReactNode {
     if (blobs.length === 0) return null;
     const bars = [];
-    console.log(side)
     let currentBar = { size: 1, hoverState: blobs[0].hoverState }
 
     blobs.slice(1).forEach((blob) => {

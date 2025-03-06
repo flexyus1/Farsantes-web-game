@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import BlobGroup from "../BlobGroup/BlobGroup";
-import { groupSide } from "../../imports/imports";
 import styles from "./GameBoard.module.scss";
 import Blob from "../../model/Blob";
 import { BlobData } from "../../imports/imports";
-import { Level } from "@farsantes/common";
+import { groupSide, Level } from "@farsantes/common";
 
 interface GameBoardProps {
   level: Level

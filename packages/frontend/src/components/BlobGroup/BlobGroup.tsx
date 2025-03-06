@@ -3,6 +3,7 @@ import Blob from "../../model/Blob";
 import { GroupSide } from "@farsantes/common";
 import { Fragment } from "react/jsx-runtime";
 import HoverState from "../HoverState/HoverState";
+import { JSX } from "react";
 
 interface BlobGroupProps {
   blobs: Blob[];

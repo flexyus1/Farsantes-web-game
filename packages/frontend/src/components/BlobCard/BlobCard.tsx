@@ -2,11 +2,12 @@ import StatementText from "../BlobText/StatementText";
 import styles from "./BlobCard.module.scss"
 import NameLabel from "../NameLabel/NameLabel";
 import BlobSprite from "../BlobSprite/BlobSprite";
-import { groupSide } from "../../imports/imports";
 import Blob, { ClickState } from "../../model/Blob";
 import { BlobIsTargeted } from "../../utils/blobMessageUtils";
 import trueImage from "../../../public/img/checkMark/green_check_button.svg"
 import falseImage from "../../../public/img/checkMark/red_check_button.svg"
+import { JSX } from "react";
+import { groupSide } from "@farsantes/common";
 
 
 interface BlobCardProps {

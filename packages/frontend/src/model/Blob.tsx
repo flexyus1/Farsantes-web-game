@@ -1,6 +1,7 @@
 import { BlobColor, Clue, GroupSide } from "@farsantes/common";
 import { BlobData } from "../imports/imports";
 import BlobCard from "../components/BlobCard/BlobCard";
+import { JSX } from "react";
 
 type MutateAll = (callback: (blob: Blob) => Blob) => void;
 
