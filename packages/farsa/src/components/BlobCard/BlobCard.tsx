@@ -17,7 +17,7 @@ export default function BlobCard({ blob }: BlobCardProps): JSX.Element {
   const side = blob.side || groupSide.LEFT;
   const flipCard = side === groupSide.RIGHT
 
-  let blobCardStyle = `${styles.blobCard} ${styles[side]} ${styles[setCardBackground(blob.clickState, blob.backgroundColor)]}`
+  let blobCardStyle = `${styles.blobCard} ${styles[side]} ${styles[setCardBackground(blob.clickState, blob.hoverState)]}`
 
   function setCardBackground(clickState: ClickState, backgroundColor: ClickState) {
     if (clickState === ClickState.NONE) {
@@ -39,8 +39,8 @@ export default function BlobCard({ blob }: BlobCardProps): JSX.Element {
     blob.mutateAll((blobItem: Blob) => {
       const isTargeted = BlobIsTargeted(blob.clue, blobItem);
       if (isTargeted) {
-        const newColor = blob.clue.assertionType ? ClickState.BLUE : ClickState.RED;
-        blobItem.backgroundColor = newColor;
+        const newColor = blob.clue.assertionType ? ClickState.GREEN : ClickState.RED;
+        blobItem.hoverState = newColor;
 
         return new Blob(blobItem);
       }
@@ -52,14 +52,14 @@ export default function BlobCard({ blob }: BlobCardProps): JSX.Element {
     blob.mutateAll((blobItem: Blob) => {
 
 
-      if (blobItem.backgroundColor === ClickState.NONE) {
+      if (blobItem.hoverState === ClickState.NONE) {
         return blobItem;
       }
-      blobItem.backgroundColor = ClickState.NONE;
+      blobItem.hoverState = ClickState.NONE;
       return new Blob(blobItem);
     })
   }
-  const image = blob.clickState === ClickState.BLUE ? trueImage : blob.clickState === ClickState.RED ? falseImage : null;
+  const image = blob.clickState === ClickState.GREEN ? trueImage : blob.clickState === ClickState.RED ? falseImage : null;
 
   return (
     <>

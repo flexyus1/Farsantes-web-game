@@ -1,5 +1,6 @@
 .blobGroup {
   display: flex;
+  position: relative;
   justify-content: flex-start;
   flex-direction: column;
   gap: $gap-between-cards;
