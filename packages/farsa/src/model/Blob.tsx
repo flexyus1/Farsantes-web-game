@@ -7,7 +7,7 @@ type MutateAll = (callback: (blob: Blob) => Blob) => void;
 export enum ClickState {
   NONE = "none",
   RED = "red",
-  BLUE = "blue",
+  GREEN = "green",
 }
 
 export default class Blob {
@@ -20,7 +20,7 @@ export default class Blob {
 
   //Mutable Fields
   #clickState: ClickState;
-  #backgroundColor: ClickState;
+  #hoverState: ClickState;
 
 
   //Functions
@@ -37,7 +37,7 @@ export default class Blob {
       this.#side = blob.side;
       this.#clickState = blob.clickState;
       this.#mutateAll = blob.mutateAll;
-      this.#backgroundColor = blob.backgroundColor
+      this.#hoverState = blob.hoverState
 
     } else {
       this.#name = blob.name;
@@ -46,7 +46,7 @@ export default class Blob {
       this.#side = blob.side || null;
       this.#clickState = ClickState.NONE;
       this.#mutateAll = mutateAll!;
-      this.#backgroundColor = ClickState.NONE
+      this.#hoverState = ClickState.NONE
 
     }
 
@@ -73,13 +73,13 @@ export default class Blob {
   }
 
   //blob.backgroundColor
-  get backgroundColor(): ClickState {
-    return this.#backgroundColor;
+  get hoverState(): ClickState {
+    return this.#hoverState;
   }
 
   //blob.backgroundColor = "red"
-  set backgroundColor(newBackgroundColor: ClickState) {
-    this.#backgroundColor = newBackgroundColor
+  set hoverState(newHoverState: ClickState) {
+    this.#hoverState = newHoverState
   }
 
   // blob.clickState
@@ -112,9 +112,9 @@ export default class Blob {
         this.#clickState = ClickState.RED;
         break;
       case ClickState.RED:
-        this.#clickState = ClickState.BLUE;
+        this.#clickState = ClickState.GREEN;
         break;
-      case ClickState.BLUE:
+      case ClickState.GREEN:
         this.#clickState = ClickState.NONE;
         break;
     }

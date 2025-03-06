@@ -2,6 +2,7 @@ import styles from "./BlobGroup.module.scss";
 import Blob from "../../model/Blob";
 import { GroupSide } from "@farsantes/common";
 import { Fragment } from "react/jsx-runtime";
+import HoverState from "../HoverState/HoverState";
 
 interface BlobGroupProps {
   blobs: Blob[];
@@ -14,6 +15,8 @@ export default function BlobGroup({ blobs, side }: BlobGroupProps): JSX.Element 
       {blobs.map((blob: Blob, index: number) => (
         <Fragment key={`blob-${index}`}>{blob.card}</Fragment>
       ))}
+      <HoverState blobs={blobs} side={side} />
     </div>
+
   );
 }
