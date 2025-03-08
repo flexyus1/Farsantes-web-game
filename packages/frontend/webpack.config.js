@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (env, argv) => {
   const isDevelopment = argv.mode !== 'production';
-  
+
   return {
     entry: './src/main.tsx',
     output: {
@@ -27,13 +27,40 @@ module.exports = (env, argv) => {
           exclude: /node_modules/,
         },
         {
+          test: /\.module\.s[ac]ss$/i,
+          use: [
+            isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
+            {
+              loader: 'css-loader',
+              options: {
+                modules: {
+                  localIdentName: '[name]__[local]--[hash:base64:5]',
+                  exportLocalsConvention: 'camelCase',
+                },
+                sourceMap: isDevelopment,
+                importLoaders: 2,
+              },
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: isDevelopment,
+                additionalData: `@use '@/styles/variables.scss' as *;`,
+              },
+            },
+          ],
+        },
+        {
+          // Regular .scss files (non-modules)
           test: /\.s[ac]ss$/i,
+          exclude: /\.module\.s[ac]ss$/i,
           use: [
             isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader,
             'css-loader',
             {
               loader: 'sass-loader',
               options: {
+                sourceMap: isDevelopment,
                 additionalData: `@use '@/styles/variables.scss' as *;`,
               },
             },
@@ -68,6 +95,19 @@ module.exports = (env, argv) => {
       historyApiFallback: true,
       port: 3000,
       hot: true,
+    },
+    optimization: {
+      moduleIds: 'deterministic',
+      runtimeChunk: 'single',
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+          },
+        },
+      },
     },
     devtool: isDevelopment ? 'eval-source-map' : 'source-map',
   };
