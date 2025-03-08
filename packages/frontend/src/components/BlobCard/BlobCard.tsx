@@ -8,6 +8,7 @@ import trueImage from "../../../public/img/checkMark/green_check_button.svg"
 import falseImage from "../../../public/img/checkMark/red_check_button.svg"
 import { JSX } from "react";
 import { groupSide } from "@farsantes/common";
+import { isMobile } from "@/utils/isMobile";
 
 
 interface BlobCardProps {
@@ -30,7 +31,7 @@ export default function BlobCard({ blob }: BlobCardProps): JSX.Element {
   }
 
   const onMouseEnter = () => {
-
+    if (isMobile()) return;
     blob.mutateAll((blobItem: Blob) => {
       if (blobItem.name === blob.name) {
         blob.isHovered = true
@@ -45,7 +46,7 @@ export default function BlobCard({ blob }: BlobCardProps): JSX.Element {
   }
 
   const onMouseLeave = () => {
-
+    if (isMobile()) return;
     blob.mutateAll((blobItem: Blob) => {
       if (blobItem.name === blob.name) {
         blob.isHovered = false
