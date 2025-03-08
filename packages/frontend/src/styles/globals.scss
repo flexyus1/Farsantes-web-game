@@ -5,6 +5,7 @@
   --outline-bold-size: 6px;
   --outline-base-size: 4px;
   --hover-bar-display: flex;
+  --base-border-radius: 18px;
 }
 
 body {
@@ -42,6 +43,7 @@ html {
     --outline-bold-size: 5px;
     --outline-base-size: 3px;
     --hover-bar-display: none;
+    --base-border-radius: 16px;
   }
 
   html {
@@ -55,6 +57,7 @@ html {
     --gap-between-cards: 10px;
     --outline-bold-size: 3px;
     --outline-base-size: 2px;
+    --base-border-radius: 12px;
   }
 
   html {
@@ -68,6 +71,7 @@ html {
     --gap-between-cards: 8px;
     --outline-bold-size: 3px;
     --outline-base-size: 2px;
+    --base-border-radius: 10px;
   }
 
   html {
@@ -80,6 +84,7 @@ html {
     --gap-between-cards: 6px;
     --outline-bold-size: 2px;
     --outline-base-size: 1px;
+    --base-border-radius: 8px;
   }
 
   html {
