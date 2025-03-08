@@ -9,7 +9,6 @@ export enum ClickState {
   NONE = "none",
   RED = "red",
   GREEN = "green",
-  BLUE = "blue"
 }
 
 export default class Blob {
@@ -126,12 +125,12 @@ export default class Blob {
   public nextClickState(): void {
     switch (this.#clickState) {
       case ClickState.NONE:
-        this.#clickState = ClickState.RED;
-        break;
-      case ClickState.RED:
         this.#clickState = ClickState.GREEN;
         break;
       case ClickState.GREEN:
+        this.#clickState = ClickState.RED;
+        break;
+      case ClickState.RED:
         this.#clickState = ClickState.NONE;
         break;
     }
