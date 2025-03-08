@@ -9,6 +9,7 @@ export enum ClickState {
   NONE = "none",
   RED = "red",
   GREEN = "green",
+  BLUE = "blue"
 }
 
 export default class Blob {
@@ -21,7 +22,8 @@ export default class Blob {
 
   //Mutable Fields
   #clickState: ClickState;
-  #hoverState: ClickState;
+  #currentAccusationState: ClickState;
+  #isHovered: boolean;
 
 
   //Functions
@@ -38,7 +40,8 @@ export default class Blob {
       this.#side = blob.side;
       this.#clickState = blob.clickState;
       this.#mutateAll = blob.mutateAll;
-      this.#hoverState = blob.hoverState
+      this.#currentAccusationState = blob.currentAccusationState;
+      this.#isHovered = blob.isHovered;
 
     } else {
       this.#name = blob.name;
@@ -47,7 +50,9 @@ export default class Blob {
       this.#side = blob.side || null;
       this.#clickState = ClickState.NONE;
       this.#mutateAll = mutateAll!;
-      this.#hoverState = ClickState.NONE
+      this.#currentAccusationState = ClickState.NONE
+      this.#isHovered = false;
+
 
     }
 
@@ -74,14 +79,25 @@ export default class Blob {
   }
 
   //blob.backgroundColor
-  get hoverState(): ClickState {
-    return this.#hoverState;
+  get currentAccusationState(): ClickState {
+    return this.#currentAccusationState;
   }
 
   //blob.backgroundColor = "red"
-  set hoverState(newHoverState: ClickState) {
-    this.#hoverState = newHoverState
+  set currentAccusationState(newState: ClickState) {
+    this.#currentAccusationState = newState
   }
+
+  // blob.isHovered
+  get isHovered(): boolean {
+    return this.#isHovered;
+  }
+
+  //blob.isHovered = true
+  set isHovered(newState: boolean) {
+    this.#isHovered = newState;
+  }
+
 
   // blob.clickState
   get clickState(): ClickState {

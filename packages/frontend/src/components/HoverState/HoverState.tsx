@@ -14,14 +14,14 @@ interface HoverStateProps {
 export default function HoverState({ blobs, side }: HoverStateProps): React.ReactNode {
     if (blobs.length === 0) return null;
     const bars = [];
-    let currentBar = { size: 1, hoverState: blobs[0].hoverState }
+    let currentBar = { size: 1, hoverState: blobs[0].currentAccusationState }
 
     blobs.slice(1).forEach((blob) => {
-        if (blob.hoverState === currentBar.hoverState) {
+        if (blob.currentAccusationState === currentBar.hoverState) {
             currentBar.size++;
         } else {
             bars.push(currentBar)
-            currentBar = { size: 1, hoverState: blob.hoverState }
+            currentBar = { size: 1, hoverState: blob.currentAccusationState }
         }
     })
 

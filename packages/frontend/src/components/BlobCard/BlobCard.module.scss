@@ -1,57 +1,74 @@
+$blob-side-margin: min(12px, 1vw);
+
 .blobCard {
+  --text-container-margin: auto;
   display: flex;
   flex-grow: 1;
   align-items: center;
   text-align: center;
   justify-content: flex-start;
-  outline: 4px solid #000000;
+  outline: var(--outline-base-size) solid #000000;
   border-radius: 18px;
   padding: 10px;
   font-family: Arial, sans-serif;
   background-color: #D9D9D9;
-  gap: 12px;
+  // gap: 12px;
   cursor: pointer;
-  transition: background-color 1s ease;
+  transition: background-color 0.3s ease;
   width: 100%;
   box-sizing: border-box;
 
   &.left {
     flex-direction: row;
 
+    .blobSide {
+      margin: 0 $blob-side-margin;
+    }
   }
 
   &.right {
     flex-direction: row-reverse;
 
-
+    .blobSide {
+      margin: 0 $blob-side-margin;
+    }
   }
 
   &.bottom {
+    --text-container-margin: min(16px, 5%) auto;
     flex-direction: column-reverse;
     width: 230px;
-    height: 240px;
 
+    .blobSide {
+      margin: $blob-side-margin 0;
+    }
   }
-}
 
-.red,
-.green {
-  outline-width: 6px;
-}
+  &.red,
+  &.green,
+  &.hovered {
+    outline-width: var(--outline-bold-size);
+  }
 
-.none {
-  background-color: #D9D9D9;
-}
+  &.none {
+    @include bg-outline-color(#D9D9D9, #000000);
+  }
 
-.red {
-  background-color: #eea3a3;
-  outline-color: #c91f1f;
+  &.hovered {
+    background-color: #4fbddf;
+  }
 
-}
+  &.red {
+    @include bg-outline-color(#eea3a3, #c91f1f);
+  }
 
-.green {
-  background-color: #c2fac7;
-  outline-color: #1ed862;
+  &.green {
+    @include bg-outline-color(#a3eea3, #1fc91f);
+  }
+
+  &.hovered {
+    outline-color: #4b7eeb;
+  }
 }
 
 .textSide {
@@ -78,7 +95,6 @@
     text-align: center;
     color: black;
   }
-
 
 }
 

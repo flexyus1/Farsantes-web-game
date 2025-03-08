@@ -1,12 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap');
 
+:root {
+  --gap-between-cards: 18px;
+  --outline-bold-size: 6px;
+  --outline-base-size: 4px;
+  --hover-bar-display: flex;
+}
 
 body {
   background-color: #413337;
+  margin: 0;
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none
+}
+
+body,
+html {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
 }
 
 .appContainer {
@@ -14,4 +28,62 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+}
+
+// Base font size (desktop and larger screens)
+html {
+  font-size: 16px;
+}
+
+// For tablets (up to 768px wide)
+@media (max-width: 768px) {
+  :root {
+    --gap-between-cards: 12px;
+    --outline-bold-size: 5px;
+    --outline-base-size: 3px;
+    --hover-bar-display: none;
+  }
+
+  html {
+    font-size: 16px;
+  }
+}
+
+// For mobile (up to 640px wide)
+@media (max-width: 640px) {
+  :root {
+    --gap-between-cards: 10px;
+    --outline-bold-size: 3px;
+    --outline-base-size: 2px;
+  }
+
+  html {
+    font-size: 14px;
+  }
+}
+
+// For mobile (up to 480px wide)
+@media (max-width: 500px) {
+  :root {
+    --gap-between-cards: 8px;
+    --outline-bold-size: 3px;
+    --outline-base-size: 2px;
+  }
+
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --gap-between-cards: 6px;
+    --outline-bold-size: 2px;
+    --outline-base-size: 1px;
+  }
+
+  html {
+    font-size: 10px;
+  }
+
 }

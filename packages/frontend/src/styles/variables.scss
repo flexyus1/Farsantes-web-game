@@ -1,5 +1,9 @@
 $mainFont: 'Baloo 2', cursive;
 
-$gap-between-cards: 18px;
+$main-container-width: min(800px, calc(100vw - 48px));
+$main-container-margin: 6px 24px;
 
-$main-container-width: min(800px, 100vw);
+@mixin bg-outline-color($background-color, $outline-color) {
+    background-color: $background-color;
+    outline-color: $outline-color;
+}

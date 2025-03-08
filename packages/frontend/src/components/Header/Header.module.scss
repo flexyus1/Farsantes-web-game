@@ -2,8 +2,8 @@
   display: flex;
   width: $main-container-width;
   justify-content: space-between;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 32px;
+  margin-bottom: 32px;
 
   >div {
     display: flex;
@@ -40,4 +40,21 @@
   line-height: 2rem;
   font-weight: bold;
   text-shadow: 0.000em 0.075em black, 0.029em 0.069em black, 0.053em 0.053em black, 0.069em 0.029em black, 0.075em 0.000em black, 0.069em -0.029em black, 0.053em -0.053em black, 0.029em -0.069em black, 0.000em -0.075em black, -0.029em -0.069em black, -0.053em -0.053em black, -0.069em -0.029em black, -0.075em -0.000em black, -0.069em 0.029em black, -0.053em 0.053em black, -0.029em 0.069em black;
+
+  p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    flex-direction: column;
+  }
+
+  .quantity {
+    margin-top: 18px;
+  }
+
 }

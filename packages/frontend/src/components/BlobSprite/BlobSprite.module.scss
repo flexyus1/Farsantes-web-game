@@ -13,8 +13,8 @@ $head-color: rgb(255, 255, 255);
 }
 
 .blobSprite {
-  width: 140px;
-  height: 100px;
+  width: min(140px, 14vw);
+  height: min(100px, 10vw);
   position: relative;
 
   --eye_color: rgb(255, 255, 255);

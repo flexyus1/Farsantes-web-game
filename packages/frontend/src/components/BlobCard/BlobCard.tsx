@@ -16,20 +16,14 @@ interface BlobCardProps {
 
 export default function BlobCard({ blob }: BlobCardProps): JSX.Element {
   const side = blob.side || groupSide.LEFT;
-  const flipCard = side === groupSide.RIGHT
-
-  let blobCardStyle = `${styles.blobCard} ${styles[side]} ${styles[setCardBackground(blob.clickState, blob.hoverState)]}`
-
-  function setCardBackground(clickState: ClickState, backgroundColor: ClickState) {
-    if (clickState === ClickState.NONE) {
-      return backgroundColor
-    }
-
-    return clickState
-  }
+  const flipCard = side === groupSide.RIGHT;
+  const clickStateStyle = styles[blob.clickState];
+  const isHoveredStyle = blob.isHovered ? styles.hovered : "";
+  let blobCardStyle = `${styles.blobCard} ${styles[side]} ${clickStateStyle} ${isHoveredStyle}`;
 
   const onClick = () => {
     blob.mutateSelf((blobItem: Blob) => {
+      blob.isHovered
       blobItem.nextClickState();
       return new Blob(blobItem);
     })
@@ -38,25 +32,25 @@ export default function BlobCard({ blob }: BlobCardProps): JSX.Element {
   const onMouseEnter = () => {
 
     blob.mutateAll((blobItem: Blob) => {
+      if (blobItem.name === blob.name) {
+        blob.isHovered = true
+      }
       const isTargeted = BlobIsTargeted(blob.clue, blobItem);
       if (isTargeted) {
         const newColor = blob.clue.assertionType ? ClickState.GREEN : ClickState.RED;
-        blobItem.hoverState = newColor;
-
-        return new Blob(blobItem);
+        blobItem.currentAccusationState = newColor;
       }
-      return blobItem;
+      return new Blob(blobItem);
     })
   }
+
   const onMouseLeave = () => {
 
     blob.mutateAll((blobItem: Blob) => {
-
-
-      if (blobItem.hoverState === ClickState.NONE) {
-        return blobItem;
+      if (blobItem.name === blob.name) {
+        blob.isHovered = false
       }
-      blobItem.hoverState = ClickState.NONE;
+      blobItem.currentAccusationState = ClickState.NONE;
       return new Blob(blobItem);
     })
   }
