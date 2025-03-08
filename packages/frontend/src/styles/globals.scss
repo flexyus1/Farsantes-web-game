@@ -11,14 +11,22 @@
 body {
   background-color: #413337;
   margin: 0;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none
+
 }
 
-body,
-html {
+html,
+body {
+  /* Prevent callout for iOS Safari (e.g., when long-pressing text) */
+  -webkit-touch-callout: none;
+  /* Disable text selection for various browsers */
+  -webkit-user-select: none;
+  /* Safari / Chrome */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Standard CSS property */
   overflow: hidden;
   height: 100%;
   width: 100%;
