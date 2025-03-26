@@ -9,6 +9,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.static(path.join(__dirname, '../../frontend/dist')));
+app.use(express.json());
 // app.use('/public', express.static(path.join(__dirname, '../../frontend/public')));
 
 
@@ -36,9 +37,53 @@ app.get('/level/:data', (req, res) => {
   }
 })
 
+app.post("/submit/:data", (req, res) => {
+  console.log(req)
+  const data = req.params.data;
+  const { solution: rawSolution } = req.body as { solution: Map<string, boolean | null> };
+  const solution = new Map<string, boolean | null>(Object.entries(rawSolution));
+  // res.send("Received");
+  let level: Level;
+  if (data === 'tutorial') {
+    level = tutorial1();
+  }
+  const difficulty = data as DifficultyLevel;
+  if (difficultyLevels.includes(difficulty)) {
+    level = createLevelByDifficulty(difficulty, 2, 3);
+    const isCorrect = checkSolution(level, solution);
+    console.log(isCorrect);
+    res.send(`Resposta: ${isCorrect}`);
+  } else {
+    res.send(`Invalid difficulty level`);
+  }
+
+  // console.log(JSON.stringify(solution));
+});
+
+
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/dist/index.html'));
 });
+
+function checkSolution(level: Level, solution: Map<string, boolean | null>): boolean {
+  const levelManager = new LevelManager(level);
+  const { solutions: correctSolutions } = levelManager.findSolutions();
+  let isCorrect = false;
+  correctSolutions.forEach(correctSolution => {
+    let currentSolutionCorrectness = true;
+    correctSolution.blobsClassifications.forEach((isTrue, name) => {
+      const playerChoice = solution.get(name);
+      if (playerChoice !== isTrue) {
+        currentSolutionCorrectness = false;
+      }
+    });
+    if (currentSolutionCorrectness) {
+      isCorrect = true;
+    }
+  });
+  return isCorrect;
+}
 
 function createLevelByDifficulty(
   difficulty: DifficultyLevel,
