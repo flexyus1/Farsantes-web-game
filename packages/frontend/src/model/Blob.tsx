@@ -97,7 +97,6 @@ export default class Blob {
     this.#isHovered = newState;
   }
 
-
   // blob.clickState
   get clickState(): ClickState {
     return this.#clickState;
@@ -106,6 +105,11 @@ export default class Blob {
   // blob.mutateAll
   get mutateAll(): MutateAll {
     return this.#mutateAll;
+  }
+
+  //blob.clickState
+  set clickState(newState: ClickState) {
+    this.#clickState = newState;
   }
 
   // blob.mutateSelf
@@ -120,6 +124,18 @@ export default class Blob {
     return (
       <BlobCard blob={this} />
     )
+  }
+
+  // blob.playerChoice
+  get playerChoice(): boolean | null {
+    switch (this.#clickState) {
+      case ClickState.NONE:
+        return null;
+      case ClickState.GREEN:
+        return true;
+      case ClickState.RED:
+        return false;
+    }
   }
 
   public nextClickState(): void {

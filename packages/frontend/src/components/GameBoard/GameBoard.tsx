@@ -4,6 +4,7 @@ import styles from "./GameBoard.module.scss";
 import Blob from "../../model/Blob";
 import { BlobData } from "../../imports/imports";
 import { groupSide, Level } from "@farsantes/common";
+import SendButton from "../SendButton/SendButton";
 
 interface GameBoardProps {
   level: Level
@@ -26,13 +27,19 @@ export default function GameBoard({ level }: GameBoardProps): JSX.Element {
   const { left: leftSide, right: rightSide, bottom: bottomSide } = organizeSides(blobs);
 
   return (
-    <div className={styles.mainContainer}>
-      <div className={styles.middleRow}>
-        <BlobGroup blobs={leftSide} side={groupSide.LEFT} />
-        <BlobGroup blobs={rightSide} side={groupSide.RIGHT} />
+    <>
+      <div className={styles.mainContainer}>
+        <div className={styles.middleRow}>
+          <BlobGroup blobs={leftSide} side={groupSide.LEFT} />
+          <BlobGroup blobs={rightSide} side={groupSide.RIGHT} />
+        </div>
+        <BlobGroup blobs={bottomSide} side={groupSide.BOTTOM} />
+
       </div>
-      <BlobGroup blobs={bottomSide} side={groupSide.BOTTOM} />
-    </div>
+      <div className={styles.sendButtonContainer}>
+        <SendButton blobs={blobs} />
+      </div>
+    </>
   );
 }
 

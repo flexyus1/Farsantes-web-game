@@ -6,7 +6,7 @@ import Blob, { ClickState } from "../../model/Blob";
 import { BlobIsTargeted } from "../../utils/blobMessageUtils";
 import trueImage from "../../../public/img/checkMark/green_check_button.svg"
 import falseImage from "../../../public/img/checkMark/red_check_button.svg"
-import { JSX } from "react";
+import { JSX, useEffect } from "react";
 import { groupSide } from "@farsantes/common";
 import { isMobile } from "@/utils/isMobile";
 
@@ -21,14 +21,40 @@ export default function BlobCard({ blob }: BlobCardProps): JSX.Element {
   const clickStateStyle = styles[blob.clickState];
   const isHoveredStyle = blob.isHovered ? styles.hovered : "";
   let blobCardStyle = `${styles.blobCard} ${styles[side]} ${clickStateStyle} ${isHoveredStyle}`;
-
   const onClick = () => {
     blob.mutateSelf((blobItem: Blob) => {
-      blob.isHovered
       blobItem.nextClickState();
+      const todayDate = new Date().toISOString().split('T')[0];
+      const clickAtual = blobItem.clickState;
+      const blobName = blobItem.name; // getter da classe
+
+
+      const oldSavedState = localStorage.getItem('dayList');
+      let data = {
+        date: todayDate,
+        blobs: [] as { name: string; state: string }[]
+      };
+
+      if (oldSavedState) {
+        const json = JSON.parse(oldSavedState);
+        if (json.date === todayDate) {
+          data.blobs = json.blobs;
+        }
+      }
+      // Verifica se já existe um blob com esse nome na lista
+      const existingIndex = data.blobs.findIndex((b) => b.name === blobName);
+      if (existingIndex !== -1) {
+        // Se já existe, atualiza o estado
+        data.blobs[existingIndex].state = clickAtual;
+      } else {
+        // Se não existe, adiciona novo
+        data.blobs.push({ name: blobName, state: clickAtual });
+      }
+      localStorage.setItem('dayList', JSON.stringify(data));
       return new Blob(blobItem);
-    })
-  }
+    });
+  };
+
 
   const onMouseEnter = () => {
     if (isMobile()) return;
@@ -44,6 +70,27 @@ export default function BlobCard({ blob }: BlobCardProps): JSX.Element {
       return new Blob(blobItem);
     })
   }
+
+  useEffect(() => {
+    const saved = localStorage.getItem("dayList");
+    if (!saved) return;
+
+    const parsed = JSON.parse(saved);
+    const todayDate = new Date().toISOString().split("T")[0];
+
+    if (parsed.date !== todayDate) return;
+
+    // Procurar pelo estado do blob atual
+    const blobData = parsed.blobs.find((b: { name: string }) => b.name === blob.name);
+
+    if (blobData) {
+      blob.mutateSelf((blobItem: Blob) => {
+        const newBlob = new Blob(blobItem);
+        newBlob.clickState = blobData.state;
+        return newBlob;
+      });
+    }
+  }, []);
 
   const onMouseLeave = () => {
     if (isMobile()) return;
