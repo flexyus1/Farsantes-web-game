@@ -11,21 +11,14 @@ function App() {
   const [level, setLevel] = useState<Level | null>(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem("dayList");
-    if (!saved) return;
-
-    const parsed = JSON.parse(saved);
-    const now = new Date();
-
-    const currentDate = now.toISOString().split("T")[0];
-    const savedDate = parsed.date;
-    const hour = now.getHours();
-
-    // Se já passou das 21h e os dados são de outro dia, limpa
-    if (hour >= 21 && savedDate !== currentDate) {
+    const savedDate = localStorage.getItem("savedDate");
+    const currentDate = new Date().toDateString();
+    console.log(currentDate)
+    if (savedDate !== currentDate) {
       localStorage.removeItem("dayList");
       localStorage.removeItem("solution");
-      localStorage.removeItem("solutionResult");
+      localStorage.setItem("solutionResult", JSON.stringify(null));
+      localStorage.setItem("savedDate", currentDate);
     }
   }, []);
 
