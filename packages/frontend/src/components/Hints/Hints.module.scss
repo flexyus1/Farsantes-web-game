@@ -1,0 +1,71 @@
+.helpContainer {
+    display: inline-block;
+    position: absolute;
+}
+
+/* Botão em estado normal (fechado) */
+.helpButton {
+    /* Tamanho pequeno */
+    width: 40px;
+    height: 40px;
+    padding: 8px 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 12px;
+    border: 2px solid #666;
+    background-color: #eee;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    white-space: nowrap;
+    transition: width 1.25s ease, height 1.25s ease, background-color 0.5s ease;
+    overflow: hidden;
+
+    &:hover {
+        background-color: #ddd;
+    }
+}
+
+.expandedHint {
+    box-sizing: border-box;
+    width: 250px;
+    height: 100px;
+}
+
+.hintContent {
+    opacity: 0;
+    transition: opacity 0.5s ease 1s;
+    transition-delay: 1s;
+    right: 100%;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 1rem;
+    transform: scale(0.98);
+
+    p {
+        font-size: 1rem;
+        line-height: 1.4;
+        margin: 0;
+
+    }
+}
+
+.helpButton.expandedHint .hintContent {
+    animation: fadeInText 0.4s ease forwards;
+    animation-delay: 1s; // espera a expansão terminar
+}
+
+@keyframes fadeInText {
+    0% {
+        opacity: 0;
+        transform: scale(0.98);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(0.98);
+    }
+}

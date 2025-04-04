@@ -17,28 +17,41 @@ export default function SendButton({ blobs }: SendButtonProps) {
     localStorage.setItem("solutionResult", JSON.stringify(solutionResult));
   }, [solutionResult]);
 
-  const onClick = async () => {
-    const solution: Record<string, boolean | null> = {};// Use an object instead of a Map
-    blobs.forEach(blob => {
-      solution[blob.name] = blob.playerChoice;// Store in an object
-    });
+  //  Synchronizes with localStorage even if you move outside the component
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const stored = localStorage.getItem("solutionResult");
 
-    console.log("Blobs length:", blobs.length);
-    console.log("Solution:", JSON.stringify(solution));// Now properly serialized
+      const parsed = stored ? JSON.parse(stored) : null; //Transforms the localStorage string back into a JS value (boolean | null). If you don't have anything stored, it assumes null.
+      setSolutionResult(prev => {
+        if (prev !== parsed) return parsed;
+        return prev;
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const onClick = async () => {
+    const solution: Record<string, boolean | null> = {};
+    blobs.forEach(blob => {
+      solution[blob.name] = blob.playerChoice;
+    });
 
     const result = await fetch(`/submit/${difficultyLevel.HARD}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ solution })// Now properly formatted
+      body: JSON.stringify({ solution })
     });
 
-    console.log(result);
     localStorage.setItem("solution", JSON.stringify(solution));
     setSolutionResult(await result.text() === "Resposta: true");
   };
+
   const color = solutionResult === null ? "" : solutionResult ? "green" : "red";
+
   return (
     <button style={{ backgroundColor: color }} className={styles.sendButton} onClick={onClick}>
       Enviar Resposta
