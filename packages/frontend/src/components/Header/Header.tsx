@@ -22,9 +22,7 @@ export default function Header({ level, getHintFunction }: HeaderProps) {
 
   return (
     <header className={styles.header}>
-      <div className={styles.item}>
-        <HintButton getHintFunction={getHintFunction} />
-      </div>
+      <HintButton getHintFunction={getHintFunction} />
 
       <div className={styles.logo}>
         <img src={logo} alt="" />
