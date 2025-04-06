@@ -1,33 +1,55 @@
-import { useState, JSX } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './Hints.module.scss';
 
 interface HintButtonProps {
     getHintFunction: () => string;
 }
 
-export function HintButton({ getHintFunction }: HintButtonProps): JSX.Element {
-    const [isHintVisible, setIsHintVisible] = useState(false);
+export function HintButton({ getHintFunction }: HintButtonProps) {
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [isCollapsing, setIsCollapsing] = useState(false);
     const [currentHint, setCurrentHint] = useState<string | null>(null);
-
     const handleShowHint = () => {
         // Obtém a dica e exibe
         const newHint = getHintFunction();
         setCurrentHint(newHint);
-        setIsHintVisible(true);
+        setIsExpanded(true);
+        setIsCollapsing(false);
     };
 
     const handleMouseLeave = () => {
-        // Quando sai do botão, ele volta ao tamanho original
-        setIsHintVisible(false);
+        // Dispara a animação de fade-out antes de "fechar" de vez
+        if (isExpanded) {
+            setIsCollapsing(true);
+        }
     };
+
+    useEffect(() => {
+        let timer: number;
+        if (isCollapsing) {
+            timer = window.setTimeout(() => {
+                setIsExpanded(false);
+                setIsCollapsing(false);
+            }, 400); // bate com 0.4s do fadeOutText
+        }
+
+        return () => {
+            if (timer) clearTimeout(timer);
+        };
+    }, [isCollapsing]);
 
     return (
         <div className={styles.helpContainer}>
             <button
-                className={`${styles.helpButton} ${isHintVisible ? styles.expandedHint : ''}`}
+                className={`
+                    ${styles.helpButton}
+                    ${isExpanded ? styles.expandedHint : ''}
+                    ${isCollapsing ? styles.collapsing : ''}
+                `}
                 onClick={handleShowHint}
-                onMouseLeave={handleMouseLeave} >
-                {isHintVisible ? (
+                onMouseLeave={handleMouseLeave}
+            >
+                {isExpanded ? (
                     <div className={styles.hintContent}>
                         <p>{currentHint}</p>
                     </div>

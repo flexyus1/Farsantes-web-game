@@ -5,8 +5,6 @@ import Header from "./components/Header/Header";
 import { fetchLevel } from "./api/fetchLevel";
 import { difficultyLevel, Level } from "@farsantes/common";
 import { showSolutionInConsole } from "./utils/showSolution";
-
-// Importe o model Blob e a função que gera hints
 import Blob from "./model/Blob";
 import { getSmartHint } from "./components/Hints/GameHints";
 
