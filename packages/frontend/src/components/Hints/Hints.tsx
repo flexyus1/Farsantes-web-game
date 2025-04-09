@@ -10,7 +10,6 @@ export function HintButton({ getHintFunction }: HintButtonProps) {
     const [isCollapsing, setIsCollapsing] = useState(false);
     const [currentHint, setCurrentHint] = useState<string | null>(null);
     const handleShowHint = () => {
-        // Obtém a dica e exibe
         const newHint = getHintFunction();
         setCurrentHint(newHint);
         setIsExpanded(true);
@@ -18,7 +17,6 @@ export function HintButton({ getHintFunction }: HintButtonProps) {
     };
 
     const handleMouseLeave = () => {
-        // Dispara a animação de fade-out antes de "fechar" de vez
         if (isExpanded) {
             setIsCollapsing(true);
         }
@@ -30,7 +28,7 @@ export function HintButton({ getHintFunction }: HintButtonProps) {
             timer = window.setTimeout(() => {
                 setIsExpanded(false);
                 setIsCollapsing(false);
-            }, 400); // bate com 0.4s do fadeOutText
+            }, 400);
         }
 
         return () => {
@@ -41,14 +39,9 @@ export function HintButton({ getHintFunction }: HintButtonProps) {
     return (
         <div className={styles.helpContainer}>
             <button
-                className={`
-                    ${styles.helpButton}
-                    ${isExpanded ? styles.expandedHint : ''}
-                    ${isCollapsing ? styles.collapsing : ''}
-                `}
+                className={`${styles.helpButton} ${isExpanded ? styles.expandedHint : ''} ${isCollapsing ? styles.collapsing : ''}`}
                 onClick={handleShowHint}
-                onMouseLeave={handleMouseLeave}
-            >
+                onMouseLeave={handleMouseLeave}>
                 {isExpanded ? (
                     <div className={styles.hintContent}>
                         <p>{currentHint}</p>

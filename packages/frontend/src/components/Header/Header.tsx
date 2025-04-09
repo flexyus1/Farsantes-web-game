@@ -22,15 +22,14 @@ export default function Header({ level, getHintFunction }: HeaderProps) {
 
   return (
     <header className={styles.header}>
-      <HintButton getHintFunction={getHintFunction} />
-      <div className={styles.logo}>
-        <img src={logo} alt="" />
-      </div>
-
       <div className={styles.quantity}>
         <p>{liarCountText}</p>
       </div>
 
+      <div className={styles.logo}>
+        <img src={logo} alt="" />
+      </div>
+      <HintButton getHintFunction={getHintFunction} />
     </header>
   );
 }

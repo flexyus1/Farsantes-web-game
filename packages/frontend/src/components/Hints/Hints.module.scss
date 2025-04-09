@@ -6,9 +6,7 @@
     padding: 12px 24px;
 }
 
-/* Botão em estado normal (fechado) */
 .helpButton {
-    /* Tamanho pequeno */
     max-width: 40px;
     max-height: 40px;
     padding: 8px 12px;
@@ -83,6 +81,15 @@
     100% {
         opacity: 1;
         transform: scale(0.98);
+    }
+
+}
+
+@media (max-width: 768px) {
+
+    .expandedHint {
+        max-height: 70%;
+        transition: max-width 0.4s ease, max-height 0.4s ease, background-color 0.4s ease;
     }
 
 }

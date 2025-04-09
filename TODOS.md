@@ -7,7 +7,7 @@
 - [x] Add button to create new empty saveState
 - [x] Add button to reset all saveState
 - [x] Update saveState's Copy button to create one below existing one
-- [ ] Add solution submission and validation
+- [x] Add solution submission and validation
 - [ ] Implement daily challenge
 - [ ] Add puzzle sharing (copy-paste mechanism)
 
@@ -15,7 +15,7 @@
 - [x] Create SaveState system
   - [x] Auto-update on changes
   - [x] Color-code based on solution status
-- [ ] Add hint system
+- [x] Add hint system
 - [ ] Implement player statistics tracking
 - [ ] Develop tutorial levels for new players
 
