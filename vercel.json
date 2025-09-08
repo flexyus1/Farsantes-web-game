@@ -1,8 +1,5 @@
 {
   "version": 2,
-  "buildCommand": "npm install && npm run build --prefix packages/common && npm run build --prefix packages/frontend",
-  "outputDirectory": "packages/frontend/dist",
-  "installCommand": "npm install",
   "routes": [
     {
       "handle": "filesystem"
