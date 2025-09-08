@@ -5,7 +5,7 @@ import { fetchLevel } from "./api/fetchLevel";
 import { difficultyLevel, Level } from "@farsantes/common";
 import Header from "./components/Header/Header";
 import { showSolutionInConsole } from "./utils/showSolution";
-// import { levelData as mockLevel } from "./data/blobs";
+import { levelData as mockLevel } from "./data/blobs";
 
 function App() {
   const [level, setLevel] = useState<Level | null>(null);
@@ -28,6 +28,11 @@ function App() {
       // Save the data to state when it's ready
       showSolutionInConsole(levelData);
       setLevel(levelData);
+    }).catch((error) => {
+      // Fallback to mock data if API fails
+      console.log("API failed, using mock data:", error);
+      showSolutionInConsole(mockLevel.level);
+      setLevel(mockLevel.level);
     });
 
   }, []);
