@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-  "start": "webpack serve --mode development",
-  "build": "webpack --mode production",
-  "test": "jest"
+    "start": "webpack serve --mode development",
+    "build": "npm install && webpack --mode production",
+    "test": "jest"
   },
   "devDependencies": {
     "css-loader": "^6.11.0",
